@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Destiny App</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="destiny-app">
+  <div v-for="cards in cards" class="card">
+    <div v-if="cards.color === 'blue'">
+      <div class="card"
+           v-bind:class="{blue:cards.color}">
+        <img class="img" v-bind:src="cards.img">
+      </div>
+    </div>
+    <div v-else-if="cards.color === 'yellow'">
+      <div class="card"
+           v-bind:class="{yellow:cards.color}">
+        <img class="img" v-bind:src="cards.img">
+       </div>
+    </div>
+    <div v-else-if="cards.color=== 'red'">
+      <div class="card"
+           v-bind:class="{red:cards.color}">
+        <img class="img" v-bind:src="cards.img">
+     </div>
+    </div>
+    <div v-else>
+        <div class="card"
+             v-bind:class="{gray:cards.color}">
+          <img class="img" v-bind:src="cards.img">
+      </div>
+    </div>
+  
+   <div class="health">
+      {{cards.health}}
+    </div>
+    
+    <div class="rarity">
+      
+      <div v-if="cards.rarity">
+         <div class="rarity"
+          v-bind:class="{rare:cards.rarity}">
+       {{cards.setNumber}} 
+        </div>
+      </div>
+      <div v-else>
+        <div class="rarity"
+             v-bind:class="{legendary:cards.rarity}">
+          {{cards.setNumber}}
+        </div>
+      </div>
+       
+    </div>
+    
+    <div class="name">
+      {{cards.name}}
+    </div>
+    
+    <div class="affl">
+     <div v-if="cards.affl === 'hero'">
+       <div class="affl"
+            v-bind:class="{hero:cards.affl}"> {{cards.affl}}    
+       </div>
+     </div>
+     <div v-else>
+        <div class="affl"
+             v-bind:class="{villain:cards.affl}">
+       {{cards.affl}}
+         </div>
+      </div>
+      
+    </div>
+</div>
+  
+</div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js'></script><script  src="./script.js"></script>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
